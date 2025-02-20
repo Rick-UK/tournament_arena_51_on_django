@@ -14,8 +14,8 @@ class Game(models.Model):
 class Tournament(models.Model):
     name = models.CharField(max_length=200)
     slug = models.SlugField(max_length=200, unique=True)
+    is_active = models.BooleanField(default=True)
     game = models.ForeignKey(Game, on_delete=models.PROTECT)
-    created_at = models.DateTimeField(auto_now_add=True)
     published_at = models.DateTimeField()
     start_date = models.DateTimeField()
     end_date = models.DateTimeField()
